@@ -18,6 +18,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import ies.sequeros.com.dam.pmdm.administrador.AdministradorViewModel
 import ies.sequeros.com.dam.pmdm.administrador.aplicacion.dependientes.BorrarDependienteUseCase
 import ies.sequeros.com.dam.pmdm.administrador.aplicacion.dependientes.actualizar.ActualizarDependienteUseCase
 import ies.sequeros.com.dam.pmdm.administrador.aplicacion.dependientes.crear.CrearDependienteUseCase
@@ -43,16 +44,16 @@ import vegaburguer.composeapp.generated.resources.compose_multiplatform
 fun App( dependienteRepositorio : IDependienteRepositorio,almacenImagenes:AlmacenDatos) {
 
     //view model
-    val appViewModel= remember { AppViewModel() }
-    val administradorViewModel= remember { MainAdministradorViewModel() }
-
+    val appViewModel= viewModel {  AppViewModel() }
+    val mainViewModel= remember { MainAdministradorViewModel() }
+    val administradorViewModel= viewModel { AdministradorViewModel() }
     val dependientesViewModel = viewModel{ DependientesViewModel(
         dependienteRepositorio, almacenImagenes
     )}
 
     appViewModel.setWindowsAdatativeInfo( currentWindowAdaptiveInfo())
     val navController= rememberNavController()
-
+//para cambiar el modo
     AppTheme(appViewModel.darkMode.collectAsState()) {
 
         NavHost(
@@ -65,7 +66,7 @@ fun App( dependienteRepositorio : IDependienteRepositorio,almacenImagenes:Almace
                 },{},{})
             }
             composable (AppRoutes.Administrador){
-                MainAdministrador(appViewModel,administradorViewModel,administradorViewModel,
+                MainAdministrador(appViewModel,mainViewModel,administradorViewModel,
                     dependientesViewModel,{
                     navController.popBackStack()
                 })

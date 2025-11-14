@@ -1,6 +1,5 @@
 package ies.sequeros.com.dam.pmdm.administrador.aplicacion.dependientes.crear
 
-import ies.sequeros.com.dam.pmdm.administrador.aplicacion.BaseUseCase
 import ies.sequeros.com.dam.pmdm.administrador.aplicacion.dependientes.listar.DependienteDTO
 import ies.sequeros.com.dam.pmdm.administrador.aplicacion.dependientes.listar.toDTO
 import ies.sequeros.com.dam.pmdm.commons.infraestructura.AlmacenDatos
@@ -9,7 +8,7 @@ import ies.sequeros.com.dam.pmdm.administrador.modelo.IDependienteRepositorio
 import ies.sequeros.com.dam.pmdm.generateUUID
 
 
-class CrearDependienteUseCase(private val repositorio: IDependienteRepositorio,private val almacenDatos: AlmacenDatos): BaseUseCase(true) {
+class CrearDependienteUseCase(private val repositorio: IDependienteRepositorio,private val almacenDatos: AlmacenDatos)  {
 
     suspend  fun invoke(createUserCommand: CrearDependienteCommand): DependienteDTO {
         //this.validateUser(user)

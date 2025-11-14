@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.FactCheck
 import androidx.compose.material.icons.filled.Close
+import androidx.compose.material.icons.filled.DarkMode
 import androidx.compose.material.icons.filled.Fastfood
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Icecream
@@ -40,6 +41,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.window.core.layout.WindowWidthSizeClass
 import ies.sequeros.com.dam.pmdm.AppViewModel
+import ies.sequeros.com.dam.pmdm.administrador.AdministradorViewModel
 
 import ies.sequeros.com.dam.pmdm.administrador.ui.dependientes.Dependientes
 import ies.sequeros.com.dam.pmdm.administrador.ui.dependientes.DependientesViewModel
@@ -51,7 +53,7 @@ import ies.sequeros.com.dam.pmdm.administrador.ui.dependientes.form.DependienteF
 fun MainAdministrador(
     appViewModel: AppViewModel,
     mainViewModel: MainAdministradorViewModel,
-    administradorViewModel: MainAdministradorViewModel,
+    administradorViewModel: AdministradorViewModel,
     dependientesViewModel: DependientesViewModel,
 
 
@@ -121,11 +123,22 @@ fun MainAdministrador(
                 "Users  Admin",
                 true
             ),
+
+            ItemOption(
+                Icons.Default.DarkMode,
+                {
+                    appViewModel.swithMode()
+
+
+                },
+                "Darkmode",
+                true
+            ),
+
             ItemOption(Icons.Default.Close, {
 
                 onExit()
-            }, "Close", false),
-
+            }, "Close", false)
             )
     )
 

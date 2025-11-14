@@ -1,6 +1,4 @@
 package ies.sequeros.com.dam.pmdm.administrador.aplicacion.dependientes.cambiarpermisos
-
-import ies.sequeros.com.dam.pmdm.administrador.aplicacion.BaseUseCase
 import ies.sequeros.com.dam.pmdm.administrador.aplicacion.dependientes.listar.DependienteDTO
 import ies.sequeros.com.dam.pmdm.administrador.aplicacion.dependientes.listar.toDTO
 import ies.sequeros.com.dam.pmdm.commons.infraestructura.AlmacenDatos
@@ -9,7 +7,7 @@ import ies.sequeros.com.dam.pmdm.administrador.modelo.Dependiente
 import ies.sequeros.com.dam.pmdm.administrador.modelo.IDependienteRepositorio
 
 
-class CambiarPermisosUseCase(private val repositorio: IDependienteRepositorio, private val almacenDatos: AlmacenDatos): BaseUseCase(true) {
+class CambiarPermisosUseCase(private val repositorio: IDependienteRepositorio, private val almacenDatos: AlmacenDatos) {
 
     suspend fun invoke(command: CambiarPermisosCommand ): DependienteDTO {
 

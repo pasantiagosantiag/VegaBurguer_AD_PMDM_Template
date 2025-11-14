@@ -1,6 +1,4 @@
 package ies.sequeros.com.dam.pmdm.administrador.aplicacion.dependientes.actualizar
-
-import ies.sequeros.com.dam.pmdm.administrador.aplicacion.BaseUseCase
 import ies.sequeros.com.dam.pmdm.administrador.aplicacion.dependientes.listar.DependienteDTO
 import ies.sequeros.com.dam.pmdm.administrador.aplicacion.dependientes.listar.toDTO
 import ies.sequeros.com.dam.pmdm.commons.infraestructura.AlmacenDatos
@@ -10,7 +8,7 @@ import ies.sequeros.com.dam.pmdm.administrador.modelo.IDependienteRepositorio
 
 
 class ActualizarDependienteUseCase(private val repositorio: IDependienteRepositorio,
-                                   private val almacenDatos: AlmacenDatos): BaseUseCase(true) {
+                                   private val almacenDatos: AlmacenDatos) {
 
     suspend fun invoke(command: ActualizarDependienteCommand, ): DependienteDTO {
 

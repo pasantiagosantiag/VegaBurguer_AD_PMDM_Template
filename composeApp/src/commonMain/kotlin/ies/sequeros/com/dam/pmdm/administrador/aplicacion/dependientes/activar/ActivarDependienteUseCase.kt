@@ -1,6 +1,6 @@
 package ies.sequeros.com.dam.pmdm.administrador.aplicacion.dependientes.activar
 
-import ies.sequeros.com.dam.pmdm.administrador.aplicacion.BaseUseCase
+
 import ies.sequeros.com.dam.pmdm.administrador.aplicacion.dependientes.listar.DependienteDTO
 import ies.sequeros.com.dam.pmdm.administrador.aplicacion.dependientes.listar.toDTO
 import ies.sequeros.com.dam.pmdm.commons.infraestructura.AlmacenDatos
@@ -9,7 +9,7 @@ import ies.sequeros.com.dam.pmdm.administrador.modelo.Dependiente
 import ies.sequeros.com.dam.pmdm.administrador.modelo.IDependienteRepositorio
 
 
-class ActivarDependienteUseCase(private val repositorio: IDependienteRepositorio,private val almacenDatos: AlmacenDatos): BaseUseCase(true) {
+class ActivarDependienteUseCase(private val repositorio: IDependienteRepositorio,private val almacenDatos: AlmacenDatos){
 
     suspend fun invoke(command: ActivarDependienteCommand ): DependienteDTO {
         val item: Dependiente?=repositorio.getById(command.id)

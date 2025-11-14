@@ -1,11 +1,9 @@
 package ies.sequeros.com.dam.pmdm.administrador.aplicacion.dependientes.cambiaclave
-
-import ies.sequeros.com.dam.pmdm.administrador.aplicacion.BaseUseCase
 import ies.sequeros.com.dam.pmdm.administrador.modelo.Dependiente
 import ies.sequeros.com.dam.pmdm.administrador.modelo.IDependienteRepositorio
 
 
-class CambiarClaveDependienteUseCase(private val repositorio: IDependienteRepositorio): BaseUseCase(true) {
+class CambiarClaveDependienteUseCase(private val repositorio: IDependienteRepositorio) {
 
     suspend fun invoke(cambiarClaveDependienteCommand: CambiarClaveDependienteCommand) {
 

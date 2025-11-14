@@ -1,12 +1,10 @@
 package ies.sequeros.com.dam.pmdm.administrador.aplicacion.dependientes
-
-import ies.sequeros.com.dam.pmdm.administrador.aplicacion.BaseUseCase
 import ies.sequeros.com.dam.pmdm.administrador.aplicacion.dependientes.listar.toDTO
 import ies.sequeros.com.dam.pmdm.commons.infraestructura.AlmacenDatos
 import ies.sequeros.com.dam.pmdm.administrador.modelo.IDependienteRepositorio
 
 
-class BorrarDependienteUseCase(private val repositorio: IDependienteRepositorio,private val almacenDatos: AlmacenDatos): BaseUseCase(true) {
+class BorrarDependienteUseCase(private val repositorio: IDependienteRepositorio,private val almacenDatos: AlmacenDatos) {
 
     suspend  fun invoke(id: String) {
         val tempo=repositorio.getById(id)
